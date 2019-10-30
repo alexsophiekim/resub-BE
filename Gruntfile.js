@@ -2,7 +2,7 @@ module.exports = function(grunt){
     grunt.initConfig({
         // pass in options to plugins, references to files
         jshint: {
-              files: ['*.js'],
+              files: ['*.js', '!*.min.js'],
               options: {
                 globals: {
                   jQuery: true
@@ -11,7 +11,7 @@ module.exports = function(grunt){
               }
             },
         watch: {
-            files: ['*.js'],
+            files: ['*.js', '!*.min.js'],
             tasks: ['jshint']
         }
     });
