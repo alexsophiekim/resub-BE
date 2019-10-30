@@ -171,7 +171,7 @@ app.post('/addItem', upload.single('itemImg'),function(req, res){
 app.get('/allItems', function(req, res){
     Item.find().then(result => {
         res.send(result);
-    });
+    }).catch(err => res.send(err));
 });
 
 
@@ -207,8 +207,6 @@ app.patch('/editItem/:id', function(req,res){
         console.log(item);
         console.log(req.body);
 
-        if (item.user_id == req.body.userId) {
-            console.log('You own this Item');
             const newItem = {
                 item_name: req.body.itemName,
                 item_description: req.body.itemDescription,
@@ -220,9 +218,6 @@ app.patch('/editItem/:id', function(req,res){
             Item.updateOne({_id: id}, newItem).then(result =>{
                 res.send(result);
             }).catch(err => res.send(err));
-        } else {
-            res.send('401');
-        }
     }).catch(err=> res.send('cannot find Item with that id'));
       // res.send('sent from update');
 });
