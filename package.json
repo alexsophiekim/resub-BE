@@ -1,0 +1,41 @@
+{
+  "name": "thread-back-end",
+  "version": "1.0.0",
+  "description": "Summative 3.0 group project by John, Andy, Matt and Sophie.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsophiekim/thread-back-end.git"
+  },
+  "keywords": [
+    "javascript",
+    "mongoDB",
+    "jQuery",
+    "node.js",
+    "Grunt",
+    "npm"
+  ],
+  "author": "John, Andy, Matt and Sophie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexsophiekim/thread-back-end/issues"
+  },
+  "homepage": "https://github.com/alexsophiekim/thread-back-end#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "nodemon": "^1.19.2"
+  }
+}
