@@ -207,10 +207,12 @@ app.patch('/editItem/:id', function(req,res){
         console.log(item);
         console.log(req.body);
 
+        if (item.user_id == req.body.userId) {
+            console.log('You own this Item');
             const newItem = {
                 item_name: req.body.itemName,
                 item_description: req.body.itemDescription,
-                clothing_type: req.body.itemType,
+                clothing_type:   req.body.itemType,
                 price: req.body.itemPrice,
                 condition: req.body.itemCondition
             };
@@ -218,6 +220,9 @@ app.patch('/editItem/:id', function(req,res){
             Item.updateOne({_id: id}, newItem).then(result =>{
                 res.send(result);
             }).catch(err => res.send(err));
+        } else {
+            res.send('401');
+        }
     }).catch(err=> res.send('cannot find Item with that id'));
       // res.send('sent from update');
 });
@@ -252,7 +257,6 @@ app.delete('/deleteItem/:id', function(req, res){
         }
     }).catch(err => res.send('cannot find an item with that id'));
 });
-
 // BUY AN ITEM
 //////////////////////
 app.get('/getItem/:id', function(req, res){
